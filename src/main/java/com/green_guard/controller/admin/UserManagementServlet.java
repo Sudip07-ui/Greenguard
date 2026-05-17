@@ -11,7 +11,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet("/admin/users")
-public class UserManagementServlet extends HttpServlet {
+public class h extends HttpServlet {
 
     private final UserDAO userDAO = new UserDAO();
     private final NotificationDAO notificationDAO = new NotificationDAO();

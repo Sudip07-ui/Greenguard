@@ -12,7 +12,9 @@ import java.io.IOException;
  * /authority/* → AUTHORITY (or ADMIN)
  * /admin/*     → ADMIN only
  */
-public class RoleFilter implements Filter {
+public class RoleFilter implements Filter
+ {
+
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)

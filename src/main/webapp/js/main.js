@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebar   = document.getElementById('sidebar');
   const overlay   = document.getElementById('overlay');
 
-  if (hamburger && sidebar) {
+  if (hamburger && sidebar) 
+     {
     hamburger.addEventListener('click', () => {
       sidebar.classList.toggle('open');
 
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-
+   
   if (overlay) {
     overlay.addEventListener('click', () => {
       sidebar.classList.remove('open');

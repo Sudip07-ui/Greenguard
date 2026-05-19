@@ -58,7 +58,7 @@
         href="data:image/svg+xml,
           <svg xmlns='http://www.w3.org/2000/svg'
                viewBox='0 0 32 32'>
-            <text y='28' font-size='28'>🌿</text>
+              <text y='28' font-size='28'>🌿</text>
           </svg>"/>
 
   <link rel="stylesheet"
@@ -68,9 +68,9 @@
 
 <body>
 
-<!-- Overlay -->
 <div id="overlay"
-     style="display:none;
+     style="
+            display:none;
             position:fixed;
             inset:0;
             background:rgba(0,0,0,.4);
@@ -81,7 +81,8 @@
 
   <!-- ================= SIDEBAR ================= -->
 
-  <aside class="sidebar" id="sidebar">
+  <aside class="sidebar"
+         id="sidebar">
 
     <div class="sidebar-logo">
 
@@ -105,31 +106,26 @@
 
       <a href="<%= ctx %>/citizen/dashboard"
          class="nav-item">
-        <span class="nav-icon"></span>
         Dashboard
       </a>
 
       <a href="<%= ctx %>/citizen/report"
          class="nav-item">
-        <span class="nav-icon"></span>
         Report Violation
       </a>
 
       <a href="<%= ctx %>/citizen/my-reports"
          class="nav-item">
-        <span class="nav-icon"></span>
         My Reports
       </a>
 
       <a href="<%= ctx %>/citizen/watchlist"
          class="nav-item">
-        <span class="nav-icon"></span>
         Watchlist
       </a>
 
       <a href="<%= ctx %>/citizen/monitor-apply"
          class="nav-item">
-        <span class="nav-icon"></span>
         Green Monitor
       </a>
 
@@ -143,13 +139,11 @@
 
       <a href="<%= ctx %>/authority/dashboard"
          class="nav-item">
-        <span class="nav-icon"></span>
         Dashboard
       </a>
 
       <a href="<%= ctx %>/authority/cases"
          class="nav-item">
-        <span class="nav-icon"></span>
         My Cases
       </a>
 
@@ -163,25 +157,21 @@
 
       <a href="<%= ctx %>/admin/dashboard"
          class="nav-item">
-        <span class="nav-icon"></span>
         Dashboard
       </a>
 
       <a href="<%= ctx %>/admin/users"
          class="nav-item">
-        <span class="nav-icon"></span>
         Users
       </a>
 
       <a href="<%= ctx %>/admin/violations"
          class="nav-item">
-        <span class="nav-icon"></span>
         Violations
       </a>
 
       <a href="<%= ctx %>/admin/monitors"
          class="nav-item">
-        <span class="nav-icon"></span>
         Monitor Applications
       </a>
 
@@ -258,26 +248,28 @@
 
       <div class="header-actions">
 
-        <!-- NOTIFICATION BELL -->
-
-        <div id="notifBell"
-             style="position:relative;
-                            cursor:pointer;">
+        <a href="<%= ctx %>/notifications"
+           style="
+                      position:relative;
+                      text-decoration:none;
+                      color:inherit;">
 
           <div class="notif-bell">
 
                         <span class="bell-icon">
 
                             <i class="fa-solid fa-bell"
-                               style="color: rgb(255, 212, 59);"></i>
+                               style="color:rgb(255,212,59);"></i>
 
                         </span>
 
             <%
               Integer unread =
-                      (Integer) request.getAttribute("unreadCount");
+                      (Integer) request.getAttribute(
+                              "unreadCount");
 
-              if (unread != null && unread > 0) {
+              if (unread != null &&
+                      unread > 0) {
             %>
 
             <span class="notif-badge">
@@ -290,42 +282,7 @@
 
           </div>
 
-          <!-- ================= DROPDOWN ================= -->
-
-          <div id="notifDropdown"
-               class="notif-dropdown">
-
-            <div class="notif-header">
-
-              Notifications
-
-            </div>
-
-            <div class="notif-item">
-
-              🔔 No new notifications
-
-            </div>
-
-            <div class="notif-item">
-
-              🌿 Welcome to GreenGuard
-
-            </div>
-
-            <div class="notif-footer">
-
-              <a href="<%= ctx %>/notifications">
-
-                View All
-
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
+        </a>
 
       </div>
 
@@ -334,8 +291,6 @@
     <!-- ================= PAGE BODY ================= -->
 
     <div class="page-body">
-
-      <!-- ERROR MESSAGE -->
 
         <% if (request.getAttribute("error") != null) { %>
 
@@ -347,8 +302,6 @@
       </div>
 
         <% } %>
-
-      <!-- SUCCESS MESSAGE -->
 
         <% if (request.getAttribute("success") != null) { %>
 

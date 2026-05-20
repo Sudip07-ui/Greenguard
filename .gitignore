@@ -1,0 +1,10 @@
+target/
+*.war
+.idea/
+*.iml
+greenguard-android/.gradle/
+greenguard-android/build/
+greenguard-android/app/build/
+uploads/
+*.log
+.DS_Store

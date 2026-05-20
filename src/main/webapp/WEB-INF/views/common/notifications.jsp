@@ -4,9 +4,9 @@
 
 <jsp:include page="header.jsp"/>
 
-<div class="card">
+<div class="card"->
 
-    <h2 style="margin-bottom:20px;">
+    <h2 style="margin-bottom:20px;margin-left:15px; margin-top: 10px ">
         Notifications
     </h2>
 

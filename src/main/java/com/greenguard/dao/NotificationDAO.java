@@ -7,7 +7,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotificationDAO {
+public class NotificationDAO
+ {
 
     public void create(int userId, String title, String message, String linkUrl) throws SQLException {
         String sql = "INSERT INTO notifications (user_id, title, message, link_url) VALUES (?, ?, ?, ?)";

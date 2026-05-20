@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <display-name>GreenGuard</display-name>
+
+    <!-- =========================
+         CONTEXT PARAMS
+    ========================== -->
+    <context-param>
+        <param-name>upload.dir</param-name>
+        <param-value>/uploads/violations</param-value>
+    </context-param>
+
+    <!-- =========================
+         FILTERS
+    ========================== -->
+
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.greenguard.filter.AuthFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/citizen/*</url-pattern>
+        <url-pattern>/authority/*</url-pattern>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>RoleFilter</filter-name>
+        <filter-class>com.greenguard.filter.RoleFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>RoleFilter</filter-name>
+        <url-pattern>/citizen/*</url-pattern>
+        <url-pattern>/authority/*</url-pattern>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>CORSFilter</filter-name>
+        <filter-class>com.greenguard.filter.CORSFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>CORSFilter</filter-name>
+        <url-pattern>/api/*</url-pattern>
+    </filter-mapping>
+
+    <!-- =========================
+         API SERVLET ONLY (IMPORTANT)
+    ========================== -->
+    <servlet>
+        <servlet-name>ApiServlet</servlet-name>
+        <servlet-class>com.greenguard.api.ApiServlet</servlet-class>
+
+        <multipart-config>
+            <max-file-size>5242880</max-file-size>
+            <max-request-size>10485760</max-request-size>
+            <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ApiServlet</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- =========================
+         SESSION
+    ========================== -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <!-- =========================
+         ERROR PAGES
+    ========================== -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/views/common/error404.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/views/common/error500.jsp</location>
+    </error-page>
+
+</web-app>
